@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 30vw;
+    height: 80vh;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .screen p{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 90%;
+    font-size: 5vh;
+    background-color: grey;
+}
+
+.container .buttons{
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+.first-row,.first-row button,
+.second-row,.second-row button, 
+.third-row,.third-row button,
+.fourth-row button,.fourth-row{
+    display: flex;
+    flex: auto;
+    width: 100%;
+    font-size: 20px;
+}
