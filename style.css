@@ -13,12 +13,18 @@ body{
     flex-direction: column;
 }
 
-.container .screen p{
-    box-sizing: border-box;
-    padding: 10px;
+.container .screen{
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .screen .values{
+    height: 60%;
     width: 90%;
-    font-size: 5vh;
-    background-color: grey;
+    word-wrap: break-word;
+    background-color: gray;
 }
 
 .container .buttons{
@@ -27,6 +33,7 @@ body{
     flex: auto;
 }
 
+.misc,.misc button,
 .first-row,.first-row button,
 .second-row,.second-row button, 
 .third-row,.third-row button,

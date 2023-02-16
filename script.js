@@ -1,3 +1,9 @@
+let buttons = document.querySelectorAll('button');
+let screen = document.querySelector('.screen').firstElementChild;
+buttons.forEach(button => {
+    button.addEventListener('click',display);
+});
+
 function add(x,y){
     return x+y;
 }
@@ -26,4 +32,9 @@ function operate(operator,num1,num2){
     }else{
         alert('Invalid operator, only use (+) (-) (*) (/)');
     }
+}
+
+function display(e){
+    let value = e.target.id;
+    screen.textContent += value;
 }
