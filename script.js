@@ -1,5 +1,6 @@
+//getting all the dom elements
 let buttons = document.querySelectorAll('button');
-let screen = document.querySelector('.screen').firstElementChild;
+let screen = document.querySelector('.display-value');
 buttons.forEach(button => {
     button.addEventListener('click',display);
 });
@@ -36,5 +37,15 @@ function operate(operator,num1,num2){
 
 function display(e){
     let value = e.target.id;
-    screen.textContent += value;
+    let total = parseInt(screen.textContent);
+    if(screen.textContent.length < 23){
+        if(total == 0){
+            screen.textContent = value;
+        }else{
+            screen.textContent += value;
+        }
+    }else{
+        alert('Maximum limit reached');
+    }
+    
 }
