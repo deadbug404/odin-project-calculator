@@ -2,6 +2,7 @@
 let buttons = document.querySelectorAll('button');
 let screen = document.querySelector('.display-value');
 let totalScreen = document.querySelector('.total-value');
+let operator = '';
 
 
 buttons.forEach(button => {
@@ -17,19 +18,19 @@ buttons.forEach(button => {
 
 
 function add(x,y){
-    return x+y;
+    totalScreen.textContent = x+y;
 }
 
 function substract(x,y){
-    return x-y;
+    totalScreen.textContent = x-y;
 }
 
 function multiply(x,y){
-    return x * y;
+    totalScreen.textContent = x*y;
 }
 
 function divide(x,y){
-    return x/y;
+    totalScreen.textContent = x/y;
 }
 
 function operate(operator,num1,num2){
@@ -39,30 +40,37 @@ function operate(operator,num1,num2){
         substract(num1,num2);
     }else if(operator == '*'){
         multiply(num1,num2);
-    }else if(operator == "/"){
-        divide(num1/num2);
-    }else{
-        alert('Invalid operator, only use (+) (-) (*) (/)');
+    }else if(operator == '/'){
+        divide(num1,num2);
     }
 }
 
 function display(e){
     let value = e.target.id;
-    let prevTotal = parseInt(totalScreen.textContent);
-    let total = parseInt(screen.textContent);
+    let currentValue = parseInt(screen.textContent);
     if(screen.textContent.length < 23){
-        if(value == '+' || value == '-' || value == '/' || value == '*'){
-            totalScreen.textContent = total;
-            screen.textContent = value;
-        }else{
-            if(total == 0) {
-                screen.textContent = value;
+        if(parseInt(screen.textContent) == 0){
+            if(isNaN(value)){
             }else{
-                if(Number.isInteger(parseInt(screen.textContent))){
-                    screen.textContent += value;
+                screen.textContent = value;
+            }
+        }else{
+            if(isNaN(value)){
+                if(operator == ''){
+                    operator = value;
+                    totalScreen.textContent = screen.textContent + " " + value;
+                    screen.textContent = 0;
                 }else{
-                    screen.textContent = value;
+                    let numberOperatorArray = totalScreen.textContent.split(' ');
+                    let lastValue = parseInt(numberOperatorArray[0]);
+                    operate(operator,lastValue,currentValue);
+                    totalScreen.textContent += ` ${value}`;
+                    operator = value;
+                    screen.textContent = 0;
                 }
+
+            }else{
+                screen.textContent += value;  
             }
         }
     }else{
@@ -84,4 +92,5 @@ function del(){
 function clr(){
     screen.textContent = '0';
     totalScreen.textContent = '';
+    operator = '';
 }
