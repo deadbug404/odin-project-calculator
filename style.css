@@ -4,6 +4,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FFA3B8;
 }
 
 button{

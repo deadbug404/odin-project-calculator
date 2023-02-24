@@ -90,10 +90,6 @@ function clr(){
     operator = '';
 }
 
-function eql(){
-    screen.textContent = totalScreen.textContent.substring(0,totalScreen.textContent.length-2);
-}
-
 function setListener(){
     buttons.forEach(button => {
         let id = button.id;
