@@ -3,18 +3,9 @@ let buttons = document.querySelectorAll('button');
 let screen = document.querySelector('.display-value');
 let totalScreen = document.querySelector('.total-value');
 let operator = '';
+let check = false;
 
-
-buttons.forEach(button => {
-    let id = button.id;
-    if(id == 'del'){
-        button.addEventListener('click',del);
-    }else if(id == 'clear'){
-        button.addEventListener('click',clr);
-    }else{
-        button.addEventListener('click',display);
-    }
-});
+setListener();
 
 
 function add(x,y){
@@ -61,14 +52,18 @@ function display(e){
                     totalScreen.textContent = screen.textContent + " " + value;
                     screen.textContent = 0;
                 }else{
-                    let numberOperatorArray = totalScreen.textContent.split(' ');
-                    let lastValue = parseInt(numberOperatorArray[0]);
-                    operate(operator,lastValue,currentValue);
-                    totalScreen.textContent += ` ${value}`;
-                    operator = value;
-                    screen.textContent = 0;
+                            let numberOperatorArray = totalScreen.textContent.split(' ');
+                            let lastValue = parseInt(numberOperatorArray[0]);
+                            operate(operator,lastValue,currentValue);
+                            totalScreen.textContent += ` ${value}`;
+                            operator = value;
+                            screen.textContent = 0;
+                            if(operator == '='){        
+                                screen.textContent = totalScreen.textContent.substring(0,totalScreen.textContent.length-2);
+                                totalScreen.textContent = '';
+                                operator = '';
+                            }
                 }
-
             }else{
                 screen.textContent += value;  
             }
@@ -94,3 +89,20 @@ function clr(){
     totalScreen.textContent = '';
     operator = '';
 }
+
+function eql(){
+    screen.textContent = totalScreen.textContent.substring(0,totalScreen.textContent.length-2);
+}
+
+function setListener(){
+    buttons.forEach(button => {
+        let id = button.id;
+        if(id == 'del'){
+            button.addEventListener('click',del);
+        }else if(id == 'clear'){
+            button.addEventListener('click',clr);
+        }else{
+            button.addEventListener('click',display);
+        }
+    });
+}   
