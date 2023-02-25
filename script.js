@@ -48,11 +48,14 @@ function display(e){
         }else{
             if(isNaN(value)){
                 if(operator == ''){
+                    if(totalScreen.textContent == '' && value == '='){
+                    }else{
                     operator = value;
                     totalScreen.textContent = screen.textContent + " " + value;
                     screen.textContent = 0;
+                    }
                 }else{
-                            let numberOperatorArray = totalScreen.textContent.split(' ');
+                        let numberOperatorArray = totalScreen.textContent.split(' ');
                             let lastValue = parseInt(numberOperatorArray[0]);
                             operate(operator,lastValue,currentValue);
                             totalScreen.textContent += ` ${value}`;
