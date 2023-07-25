@@ -1,88 +1,63 @@
 body{
-    margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFA3B8;
-}
-
-button{
-    margin: 3px;
-    border: none;
-    background-color: #BA0F30;
-    color: white;
-    border-radius: 3px;
-}
-
-button:hover{
-    cursor: pointer;
-    color: black;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
 }
 
 .container{
-    width: 30vw;
-    height: 90vh;
-    border: 3px solid black;
     display: flex;
-    flex-direction: column;
-    background-image: url(img/background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 10px;
+    height: 100%;
 }
 
-.container .screen{
+.container .right{
     display: flex;
-    flex: auto;
     justify-content: center;
     align-items: center;
+    flex: 1;
+}
+
+
+.container .right .calculator{
     border: 1px solid black;
-}
-
-.container .buttons{
-    background-color: black;
-}
-
-.container .screen .values{
-    height: 60%;
-    width: 90%;
-    font-size: 30px;
-    word-wrap: break-word;
-    background-color: #C6B79B;
+    width: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border-radius: 10px;
+    align-items: center;
 }
 
-.container .screen .values .display-value, .container .screen .values .total-value{
+.container .right .calculator .screen{
+    border: 1px solid black;
     margin: 10px;
-    display: flex;
-    justify-content: end;
-    height: 36px;
+    height: 150px;
+    width: 380px;
+    border-radius: 5px;
 }
 
-.container .buttons{
+.container .right .calculator .buttons{
     display: flex;
-    flex-direction: column;
-    flex: auto;
-}
-
-.container .buttons .fourth-row .zero,.container .buttons .fourth-row .plus{
-    display: flex;
-    flex-shrink: 1.5;
-}
-
-.misc,.misc button,
-.first-row,.first-row button,
-.second-row,.second-row button, 
-.third-row,.third-row button,
-.fourth-row button,.fourth-row{
-    display: flex;
-    flex: auto;
     width: 100%;
-    font-size: 20px;
+    flex-direction: column;
+
 }
 
+.container .right .calculator .buttons .row{
+    display: flex;
+}
 
+.container .right .calculator .buttons .row button{
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.container .right .calculator .buttons .row button:hover{
+    background-color: gray;
+    color: black;
+    cursor: pointer;
+}
