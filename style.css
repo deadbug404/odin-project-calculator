@@ -3,6 +3,7 @@ body{
     margin: 0;
     box-sizing: border-box;
     height: 100vh;
+    background-color: #0284c7;
 }
 
 .container{
@@ -19,21 +20,49 @@ body{
 
 
 .container .right .calculator{
-    border: 1px solid black;
+    border: 5px solid #38bdf8;
     width: 400px;
     height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #7dd3fc;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+
 }
 
 .container .right .calculator .screen{
-    border: 1px solid black;
+    border: 3px solid #0284c7;
     margin: 10px;
     height: 150px;
     width: 380px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Courier New', monospace;
 }
+
+.container .right .calculator .screen .top-screen,
+.container .right .calculator .screen .bottom-screen{
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+}
+
+.container .right .calculator .screen .top-screen{
+    align-items: start;
+    font-size: 20px;
+}
+
+.container .right .calculator .screen .bottom-screen{
+    align-items: end;
+    font-size: 50px;
+}
+
 
 .container .right .calculator .buttons{
     display: flex;
@@ -57,7 +86,7 @@ body{
 }
 
 .container .right .calculator .buttons .row button:hover{
-    background-color: gray;
+    background-color: #0284c7;
     color: black;
     cursor: pointer;
 }
