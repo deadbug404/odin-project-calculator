@@ -15,7 +15,11 @@ buttons.forEach(b => {
         }else if(value == 'Delete'){
             del();
         }else if(!(isNaN(value))){
-            bottomScreen.textContent += value;
+            if(bottomScreen.textContent == '0' && value == '0'){
+            }else{
+                (bottomScreen.textContent == '0') ? bottomScreen.textContent='' : console.log();
+                bottomScreen.textContent += value;
+            }        
         }else{
             assignValues(value);
         }
@@ -77,7 +81,7 @@ function equal(num1,operator,num2){
 
 function clear(){
     topScreen.textContent = '';
-    bottomScreen.textContent = '';
+    bottomScreen.textContent = '0';
 }
 
 function del(){
